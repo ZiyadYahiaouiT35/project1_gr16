@@ -4,9 +4,10 @@ FROM python:3.11-slim
 # Set the working directory
 WORKDIR /app
 
-# Install system tools needed for ML libraries
+# Install system tools needed for ML libraries (ADDED libgomp1)
 RUN apt-get update && apt-get install -y \
     build-essential \
+    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first to leverage Docker caching
